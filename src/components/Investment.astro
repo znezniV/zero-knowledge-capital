@@ -17,22 +17,22 @@ const logoSrc = logos[logoKey];
     href={url}
     target="_blank"
     rel="noreferrer"
-    class="border border-stone-200 dark:border-stone-800 grid grid-cols-4 gap-3 px-3 py-3 rounded-lg hover:bg-stone-50 dark:hover:bg-stone-950 transition-colors"
+    class="border border-stone-200 dark:border-stone-800 grid grid-cols-12 gap-3 px-3 py-3 rounded-md hover:bg-stone-50 dark:hover:bg-stone-950 transition-colors"
 >
-    <div>
-        <div
-            class="aspect-square p-2 flex items-center justify-center col-span-1 border-stone-200 dark:border-stone-800 border object-contain bg-white dark:bg-black"
-        >
-            <Image
-                src={logoSrc}
-                alt={`Logo ${title}`}
-                width={250}
-                height={250}
-                class="invert-0 brightness-0 dark:invert dark:brightness-1"
-            />
-        </div>
+    <div
+        class="aspect-4/3 md:aspect-square p-2 flex items-center justify-center border-stone-200 dark:border-stone-800 border object-contain bg-white dark:bg-black col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-3"
+    >
+        <Image
+            src={logoSrc}
+            alt={`Logo ${title}`}
+            width={250}
+            height={250}
+            class="invert-0 brightness-0 dark:invert dark:brightness-1"
+        />
     </div>
-    <div class="flex flex-col col-span-3">
+    <div
+        class="flex flex-col col-span-8 sm:col-span-8 md:col-span-8 lg:col-span-9"
+    >
         <div class="flex justify-between gap-3">
             <h3>
                 {title}
