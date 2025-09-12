@@ -1,0 +1,21 @@
+---
+import SectionHeading from "@components/SectionHeading.astro";
+import site from "@content/site/global.json";
+---
+
+<section id="contact" class="my-32 animate-on-scroll">
+    <SectionHeading title="Get In Touch" />
+    <p>Ready to discuss your next project or investment opportunity?</p>
+    <div>
+        <div>
+            <a
+                href={`mailto:${site.contact.email}`}
+                class="underline decoration-[1px] underline-offset-[0.2em]"
+                >{site.contact.email}</a
+            >
+        </div>
+        <div>
+            {site.contact.location}
+        </div>
+    </div>
+</section>

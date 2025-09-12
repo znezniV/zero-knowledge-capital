@@ -1,0 +1,14 @@
+{
+  "services": [
+    {
+      "title": "Strategic Consulting",
+      "description": "Guidance on GTM strategy, market positioning, and fundraising (token / equity).",
+      "icon": "bolt"
+    },
+    {
+      "title": "Network Access",
+      "description": "Access to our extensive network of investors, builders, and industry experts.",
+      "icon": "person"
+    }
+  ]
+}

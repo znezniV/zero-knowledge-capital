@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+import site from "@content/site/global.json";
+import Footer from "@components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en" class="dark:text-white dark:bg-black">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{site.siteName}</title>
+    </head>
+    <body>
+        <main class="max-w-2xl m-auto mb-32 px-4">
+            <slot />
+        </main>
+        <Footer />
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add("visible");
+                        }, 200); // 200ms delay
+                    }
+                });
+            });
+
+            document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+                observer.observe(el);
+            });
+        </script>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>

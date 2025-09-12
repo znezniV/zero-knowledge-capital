@@ -1,0 +1,109 @@
+---
+import site from "@content/site/global.json";
+---
+
+<header class="min-h-[100dvh] flex flex-col justify-center py-16">
+    <h1
+        class="text-4xl md:text-6xl mb-4 decrypt-text md:text-nowrap"
+        data-original-text={site.siteName}
+    >
+    </h1>
+    <p>
+        {site.siteDescription}
+    </p>
+    <p class="text-gray-400">{site.siteNameExplanation}</p>
+    <div class="flex gap-3 md:gap-4 mt-3">
+        <a href="#services" class="border px-3"> Our Services </a>
+        <a
+            href="#portfolio"
+            class="underline decoration-[1px] underline-offset-[0.4em]"
+        >
+            View Portfolio
+        </a>
+    </div>
+</header>
+
+<script>
+    class DecryptText {
+        constructor(element) {
+            this.element = element;
+            this.originalText = element.dataset.originalText;
+            this.chars = "0123456789abcdef";
+            this.animationSpeed = 5;
+            this.decryptSpeed = 40;
+            this.init();
+        }
+
+        init() {
+            this.element.textContent = this.scrambleText(this.originalText);
+            this.startDecryption();
+        }
+
+        scrambleText(text) {
+            return text
+                .split("")
+                .map((char) => (char === " " ? " " : this.getRandomChar()))
+                .join("");
+        }
+
+        getRandomChar() {
+            return this.chars[Math.floor(Math.random() * this.chars.length)];
+        }
+
+        startDecryption() {
+            let currentText = this.element.textContent.split("");
+            let decryptedCount = 0;
+
+            const decrypt = () => {
+                if (decryptedCount < this.originalText.length) {
+                    // Decrypt one more character
+                    if (this.originalText[decryptedCount] !== " ") {
+                        currentText[decryptedCount] =
+                            this.originalText[decryptedCount];
+                        decryptedCount++;
+                    } else {
+                        decryptedCount++;
+                    }
+
+                    // Scramble remaining characters
+                    for (let i = decryptedCount; i < currentText.length; i++) {
+                        if (this.originalText[i] !== " ") {
+                            currentText[i] = this.getRandomChar();
+                        }
+                    }
+
+                    this.element.textContent = currentText.join("");
+                    setTimeout(decrypt, this.decryptSpeed);
+                } else {
+                    // Animation complete - restore original font
+                    this.element.style.fontFamily = "";
+                    this.element.classList.remove("text-nowrap");
+                }
+            };
+
+            // Start with a brief scrambling phase
+            let scrambleCount = 0;
+            const scramble = () => {
+                if (scrambleCount < 5) {
+                    this.element.textContent = this.scrambleText(
+                        this.originalText,
+                    );
+                    scrambleCount++;
+                    setTimeout(scramble, this.animationSpeed);
+                } else {
+                    decrypt();
+                }
+            };
+
+            setTimeout(scramble, 300);
+        }
+    }
+
+    // Initialize on page load
+    document.addEventListener("DOMContentLoaded", () => {
+        const decryptElement = document.querySelector(".decrypt-text");
+        if (decryptElement) {
+            new DecryptText(decryptElement);
+        }
+    });
+</script>

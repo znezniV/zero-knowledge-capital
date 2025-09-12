@@ -1,0 +1,11 @@
+---
+import SectionHeading from "@components/SectionHeading.astro";
+import * as content from "@content/pages/home/about.md";
+const aboutModule = await import("@content/pages/home/about.md");
+const Content = aboutModule.default;
+---
+
+<section id="about" class="my-32 animate-on-scroll">
+    <SectionHeading title={content.frontmatter.title} />
+    <Content />
+</section>

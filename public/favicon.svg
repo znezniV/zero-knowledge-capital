@@ -1,0 +1,10 @@
+
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="31" width="88" height="66" rx="14" stroke="black" stroke-width="10"/>
+    <style>
+        path { stroke: #000; }
+        @media (prefers-color-scheme: dark) {
+            path { stroke: #FFF; }
+        }
+    </style>
+</svg>
