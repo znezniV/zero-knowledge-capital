@@ -31,7 +31,9 @@ collections:
           - name: body
             label: Content
             widget: markdown
-            hint: Main content. Use ## for subheadings, avoid single # tags
+            buttons: ["bold", "italic", "link"]
+            editor_components: ["image"]
+            hint: Main content. Use `##` for subheadings, avoid single `#` tags
 
       - name: investments
         label: Investments
