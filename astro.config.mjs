@@ -8,6 +8,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://znezniv.github.io/zero-knowledge-capital",
-  base: "/zero-knowledge-capital",
+  site: "https://zeroknowledgecapital.com",
 });
