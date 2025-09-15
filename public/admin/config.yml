@@ -1,0 +1,184 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: znezniv/zero-knowledge-capital # Replace with your actual GitHub repository
+  branch: main
+  site_domain: zeroknowledgecapital.com # Replace with your actual domain
+  auth_endpoint: auth
+
+media_folder: public/images
+public_folder: /images
+
+site_url: https://zeroknowledgecapital.com # Replace with your actual site URL
+display_url: https://zeroknowledgecapital.com # Replace with your actual site URL
+logo_url: /favicon.svg
+
+collections:
+  - name: pages
+    label: Pages
+    label_singular: Page
+    icon: home
+    files:
+      - name: about
+        label: About Page
+        file: src/content/pages/home/about.md
+        icon: info
+        fields:
+          - name: title
+            label: Title
+            widget: string
+            hint: The main title for the about section
+          - name: body
+            label: Content
+            widget: markdown
+            hint: Main content. Use ## for subheadings, avoid single # tags
+
+      - name: investments
+        label: Investments
+        file: src/content/pages/home/investments.json
+        icon: trending_up
+        fields:
+          - name: investments
+            label: Investments
+            label_singular: Investment
+            widget: list
+            allow_add: true
+            allow_delete: true
+            collapsed: false
+            fields:
+              - name: title
+                label: Company Name
+                widget: string
+                required: true
+              - name: description
+                label: Description
+                widget: string
+                required: true
+                hint: Brief description of the company or investment
+              - name: logo
+                label: Logo
+                widget: image
+                required: true
+                hint: Company logo (recommended size 200x200px)
+              - name: url
+                label: Website URL
+                widget: string
+                required: true
+                pattern: "^https?://"
+                hint: Must be a valid URL starting with http or https
+              - name: tags
+                label: Categories
+                widget: select
+                multiple: true
+                required: true
+                options:
+                  - Technology
+                  - AI/ML
+                  - DeFi
+                  - Cryptocurrency
+                  - Healthcare
+                  - Fintech
+                hint: Select categories that describe this investment
+
+      - name: services
+        label: Services
+        file: src/content/pages/home/services.json
+        icon: business_center
+        fields:
+          - name: services
+            label: Services
+            label_singular: Service
+            widget: list
+            allow_add: true
+            allow_delete: true
+            collapsed: false
+            fields:
+              - name: title
+                label: Service Title
+                widget: string
+                required: true
+              - name: description
+                label: Description
+                widget: text
+                required: true
+                hint: Detailed description of the service offered
+              - name: icon
+                label: Icon
+                widget: select
+                required: true
+                options:
+                  - bolt
+                  - person
+                  - lightbulb
+                  - analytics
+                  - security
+                  - handshake
+                  - rocket_launch
+                  - center_focus_strong
+                hint: Choose an icon that represents this service
+
+  - name: site
+    label: Site Settings
+    icon: settings
+    files:
+      - name: global
+        label: Global Settings
+        file: src/content/site/global.json
+        fields:
+          - name: siteName
+            label: Site Name
+            widget: string
+            required: true
+            hint: The main name of your website
+          - name: siteDescription
+            label: Site Description
+            widget: string
+            required: true
+            hint: Brief description used for SEO
+          - name: siteNameExplanation
+            label: Site Name Explanation
+            widget: string
+            required: false
+            hint: Optional explanation or tagline
+          - name: siteUrl
+            label: Site URL
+            widget: string
+            required: true
+            pattern: "^https?://"
+            hint: The full URL of your website
+          - name: contact
+            label: Contact Information
+            widget: object
+            fields:
+              - name: email
+                label: Email Address
+                widget: string
+                required: true
+                pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+                hint: Valid email address
+              - name: location
+                label: Location
+                widget: string
+                required: true
+                hint: Business location or address
+
+media_library:
+  name: default
+  config:
+    max_file_size: 5242880 # 5MB in bytes
+    transformations:
+      raster_image:
+        format: webp
+        quality: 85
+        width: 2048
+        height: 2048
+
+output:
+  omit_empty_optional_fields: false
+  json:
+    indent_style: space
+    indent_size: 2
+  yaml:
+    indent_size: 2
+    quote: none
