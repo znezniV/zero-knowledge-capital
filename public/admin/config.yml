@@ -7,8 +7,7 @@ backend:
   site_domain: zeroknowledgecapital.com # Replace with your actual domain
   auth_endpoint: auth
 
-media_folder: /src/assets
-public_folder: /
+media_folder: src/assets/
 
 site_url: https://zeroknowledgecapital.com # Replace with your actual site URL
 display_url: https://zeroknowledgecapital.com # Replace with your actual site URL
@@ -59,8 +58,6 @@ collections:
               - name: logo
                 label: Logo
                 widget: image
-                media_folder: /src/assets
-                public_folder: /
                 allow_multiple: false
                 required: true
                 hint: Company logo (recommended size 200x200px)
