@@ -3,44 +3,56 @@
     {
       "title": "OOMNIUM",
       "description": "Crowdinvesting & Venture Technology",
-      "logo": "/oomnium.png",
+      "logo": "/images/repository-open-graph-template.webp",
       "url": "https://oomnium.com",
-      "tags": ["Technology"]
+      "tags": [
+        "Technology"
+      ]
     },
     {
       "title": "Neuronomics",
       "description": "AI & Neuroscience for Asset Management",
       "logo": "/neuronomics.png",
       "url": "https://neuronomics.com",
-      "tags": ["AI/ML"]
+      "tags": [
+        "AI/ML"
+      ]
     },
     {
       "title": "Obligate",
       "description": "Blockchain-based Capital Markets",
       "logo": "/obligate.png",
       "url": "https://obligate.com",
-      "tags": ["DeFi"]
+      "tags": [
+        "DeFi"
+      ]
     },
     {
       "title": "PROTOTYPES",
       "description": "Upcycling Fashion Label",
       "logo": "/prototypes.png",
       "url": "https://proto-types.ch/",
-      "tags": ["Technology"]
+      "tags": [
+        "Technology"
+      ]
     },
     {
       "title": "t3rn",
       "description": "Blockchain Interoperability Protocol",
       "logo": "/t3rn.png",
       "url": "https://t3rn.io",
-      "tags": ["Cryptocurrency"]
+      "tags": [
+        "Cryptocurrency"
+      ]
     },
     {
       "title": "Psygen",
       "description": "Psychedelics Manufacturing",
       "logo": "/psygen.png",
       "url": "https://psygen.ca",
-      "tags": ["Technology"]
+      "tags": [
+        "Technology"
+      ]
     }
   ]
 }
