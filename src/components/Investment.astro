@@ -3,14 +3,13 @@ import { Image } from "astro:assets";
 const { title, description, logo, url, tags } = Astro.props;
 
 // Import all logo images dynamically
-const logos = import.meta.glob("/src/assets/logos/*.{png,jpg,jpeg,svg,webp}", {
+const logos = import.meta.glob("/src/assets/*.{png,jpg,jpeg,svg,webp}", {
     eager: true,
     import: "default",
 });
 
 // Get the correct logo path
-const logoKey = `/src/assets/logos${logo}`;
-const logoSrc = logos[logoKey];
+const logoSrc = logos[logo];
 ---
 
 <a
