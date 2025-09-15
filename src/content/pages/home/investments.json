@@ -12,7 +12,7 @@
     {
       "title": "Neuronomics",
       "description": "AI & Neuroscience for Asset Management",
-      "logo": "/neuronomics.png",
+      "logo": "/src/assets/neuronomics.png",
       "url": "https://neuronomics.com",
       "tags": [
         "AI/ML"
@@ -21,7 +21,7 @@
     {
       "title": "Obligate",
       "description": "Blockchain-based Capital Markets",
-      "logo": "/obligate.png",
+      "logo": "/src/assets/obligate.png",
       "url": "https://obligate.com",
       "tags": [
         "DeFi"
@@ -30,7 +30,7 @@
     {
       "title": "PROTOTYPES",
       "description": "Upcycling Fashion Label",
-      "logo": "/prototypes.png",
+      "logo": "/src/assets/prototypes.png",
       "url": "https://proto-types.ch/",
       "tags": [
         "Technology"
@@ -39,7 +39,7 @@
     {
       "title": "t3rn",
       "description": "Blockchain Interoperability Protocol",
-      "logo": "/t3rn.png",
+      "logo": "/src/assets/t3rn.png",
       "url": "https://t3rn.io",
       "tags": [
         "Cryptocurrency"
@@ -48,7 +48,7 @@
     {
       "title": "Psygen",
       "description": "Psychedelics Manufacturing",
-      "logo": "/psygen.png",
+      "logo": "/src/assets/psygen.png",
       "url": "https://psygen.ca",
       "tags": [
         "Technology"
