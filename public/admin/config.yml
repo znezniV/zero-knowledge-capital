@@ -8,7 +8,7 @@ backend:
   auth_endpoint: auth
 
 media_folder: /src/assets
-public_folder: /
+public_folder: /public
 
 site_url: https://zeroknowledgecapital.com # Replace with your actual site URL
 display_url: https://zeroknowledgecapital.com # Replace with your actual site URL
@@ -60,6 +60,7 @@ collections:
                 label: Logo
                 widget: image
                 media_folder: /logos
+                public_folder: /logos
                 allow_multiple: false
                 required: true
                 hint: Company logo (recommended size 200x200px)
