@@ -7,6 +7,7 @@ import site from "@content/site/global.json";
         class="text-4xl md:text-6xl mb-4 decrypt-text xl:text-nowrap"
         data-original-text={site.siteName}
     >
+        {site.siteName}
     </h1>
     <p>
         {site.siteDescription}
@@ -24,6 +25,28 @@ import site from "@content/site/global.json";
 </header>
 
 <script>
+    // Immediately hide the real text and show encrypted version to prevent flash
+    document.addEventListener("astro:page-load", () => {
+        const element = document.querySelector(".decrypt-text");
+        if (element && !element.dataset.encrypted) {
+            const originalText = element.textContent.trim();
+            element.textContent = generateFixedEncryption(originalText);
+            element.dataset.encrypted = "true";
+        }
+    });
+
+    function generateFixedEncryption(text) {
+        const chars = "0123456789abcdef";
+        return text
+            .split("")
+            .map((char, index) => {
+                if (char === " ") return " ";
+                let seed = char.charCodeAt(0) * 31 + index * 17;
+                return chars[seed % chars.length];
+            })
+            .join("");
+    }
+
     class DecryptText {
         constructor(element) {
             this.element = element;
@@ -31,19 +54,19 @@ import site from "@content/site/global.json";
             this.chars = "0123456789abcdef";
             this.animationSpeed = 5;
             this.decryptSpeed = 40;
+            this.encryptedText = this.generateFixedEncryption(
+                this.originalText,
+            );
             this.init();
         }
 
         init() {
-            this.element.textContent = this.scrambleText(this.originalText);
+            this.element.textContent = this.encryptedText;
             this.startDecryption();
         }
 
-        scrambleText(text) {
-            return text
-                .split("")
-                .map((char) => (char === " " ? " " : this.getRandomChar()))
-                .join("");
+        generateFixedEncryption(text) {
+            return generateFixedEncryption(text);
         }
 
         getRandomChar() {
@@ -81,29 +104,25 @@ import site from "@content/site/global.json";
                 }
             };
 
-            // Start with a brief scrambling phase
-            let scrambleCount = 0;
-            const scramble = () => {
-                if (scrambleCount < 5) {
-                    this.element.textContent = this.scrambleText(
-                        this.originalText,
-                    );
-                    scrambleCount++;
-                    setTimeout(scramble, this.animationSpeed);
-                } else {
-                    decrypt();
-                }
-            };
-
-            setTimeout(scramble, 300);
+            // Start decryption after a brief pause
+            setTimeout(decrypt, 500);
         }
     }
 
-    // Initialize on page load
+    // Initialize animation
     document.addEventListener("DOMContentLoaded", () => {
         const decryptElement = document.querySelector(".decrypt-text");
         if (decryptElement) {
             new DecryptText(decryptElement);
+        }
+    });
+
+    // For Astro view transitions
+    document.addEventListener("astro:page-load", () => {
+        const decryptElement = document.querySelector(".decrypt-text");
+        if (decryptElement && !decryptElement.dataset.animated) {
+            new DecryptText(decryptElement);
+            decryptElement.dataset.animated = "true";
         }
     });
 </script>
