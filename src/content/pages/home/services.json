@@ -9,6 +9,11 @@
       "title": "Network Access",
       "description": "Access to our extensive network of investors, builders, and industry experts.",
       "icon": "person"
+    },
+    {
+      "title": "Investment",
+      "description": "We invest in pre-seed and seed rounds (both token & equity).",
+      "icon": "person"
     }
   ]
 }
