@@ -4,8 +4,8 @@ backend:
   name: github
   repo: znezniv/zero-knowledge-capital # Replace with your actual GitHub repository
   branch: main
+  base_url: https://sveltia-cms-auth.runny-setup-slum.workers.dev
   site_domain: zeroknowledgecapital.com # Replace with your actual domain
-  auth_endpoint: auth
 
 media_folder: src/assets/
 
