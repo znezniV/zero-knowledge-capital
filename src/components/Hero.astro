@@ -4,7 +4,7 @@ import site from "@content/site/global.json";
 
 <header class="min-h-[100dvh] flex flex-col justify-center py-16">
     <h1
-        class="text-4xl md:text-6xl mb-4 decrypt-text"
+        class="text-4xl md:text-6xl mb-2 decrypt-text"
         data-original-text={site.siteName}
     >
         {site.siteName}
@@ -12,12 +12,17 @@ import site from "@content/site/global.json";
     <p>
         {site.siteDescription}
     </p>
-    <p class="text-gray-600">{site.siteNameExplanation}</p>
-    <div class="flex gap-3 md:gap-4 mt-3">
-        <a href="#services" class="border px-3"> Our Services </a>
+    <p class="text-stone-500">{site.siteNameExplanation}</p>
+    <div class="flex gap-3 md:gap-4 mt-4">
+        <a
+            href="#services"
+            class="border border-stone-white px-3 py-1 hover:bg-stone-900"
+        >
+            Our Services
+        </a>
         <a
             href="#portfolio"
-            class="underline decoration-[1px] underline-offset-[0.4em]"
+            class="px-3 py-1 underline decoration-[1px] underline-offset-[0.4em] hover:no-underline"
         >
             View Portfolio
         </a>
