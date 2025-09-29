@@ -2,12 +2,14 @@
 const { title, description, icon } = Astro.props;
 ---
 
-<div class="p-4 border border-stone-700 -ml-px -mt-px">
-    <div class="flex gap-1.5 flex-col -mt-1.5 -mb-0.5">
-        <h3 class="text-2xl">
+<div
+    class="px-10 py-10 bg-black -mx-px border border-stone-800 first:rounded-t-3xl md:first:rounded-l-3xl md:first:rounded-tr-none last:rounded-b-3xl md:last:rounded-r-3xl md:last:rounded-bl-none text-white"
+>
+    <div class="flex gap-0.5 flex-col -mt-1.5 -mb-0.5">
+        <h3 class="text-2xl font-heading">
             {title}
         </h3>
-        <p class="text-xs mt-1 max-w-[16em] text-balance">
+        <p class="mt-1 text-stone-500">
             {description}
         </p>
     </div>

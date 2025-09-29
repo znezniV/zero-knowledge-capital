@@ -1,5 +1,5 @@
 ---
-import SectionHeading from "@components/SectionHeading.astro";
+import PageSection from "@components/PageSection.astro";
 import Investment from "@components/Investment.astro";
 import content from "@content/pages/home/investments.json";
 const tags = [
@@ -7,10 +7,14 @@ const tags = [
 ];
 ---
 
-<section id="portfolio" class="my-32 animate-on-scroll">
-    <SectionHeading title="Investment Portfolio" />
-    <p class="mb-8">Diverse investments across emerging technologies</p>
-    <div class="grid grid-cols-1 md:grid-cols-2">
+<PageSection
+    id="portfolio"
+    title="Investment Portfolio"
+    lead="Diverse investments across emerging technologies"
+>
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 p-2 bg-stone-900 border border-stone-800 rounded-4xl"
+    >
         {content.investments.map((item) => <Investment {...item} />)}
     </div>
-</section>
+</PageSection>
