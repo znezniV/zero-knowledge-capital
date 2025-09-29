@@ -3,7 +3,7 @@ import SectionHeading from "@components/SectionHeading.astro";
 const { id, title, lead } = Astro.props;
 ---
 
-<section class="animate-on-scroll py-16 min-h-[80dvh]" id={id}>
+<section class="animate-on-scroll py-24" id={id}>
     <SectionHeading title={title} lead={lead} />
     <slot />
 </section>
