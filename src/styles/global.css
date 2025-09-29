@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 html {
-    font-size: 20px;
+    --font-heading: "Bagnard", "sans-serif";
+    font-size: 16px;
     scroll-behavior: smooth;
 }
 
@@ -9,6 +10,19 @@ html {
     html {
         font-size: 30px;
     }
+}
+
+h1,
+h2 {
+    font-family: var(--font-heading);
+}
+
+@font-face {
+    font-family: "Bagnard";
+    src: url("/fonts/BagnardSans.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 .animate-on-scroll {
