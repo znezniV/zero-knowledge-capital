@@ -60,7 +60,7 @@ collections:
               - name: logo
                 label: Logo
                 widget: image
-                allow_multiple: false
+                multiple: false
                 required: true
                 hint: Company logo (recommended size 200x200px)
               - name: url
